@@ -1,0 +1,4 @@
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll(".reveal").forEach((e,i)=>{if(e.closest(".hero"))e.style.transitionDelay=`${i*.08}s`;io.observe(e)});
+const c=document.querySelector(".cursor");
+if(matchMedia("(pointer:fine)").matches){addEventListener("mousemove",e=>{c.style.left=e.clientX+"px";c.style.top=e.clientY+"px"});document.querySelectorAll("a,.world").forEach(e=>{e.addEventListener("mouseenter",()=>c.classList.add("big"));e.addEventListener("mouseleave",()=>c.classList.remove("big"))})}
